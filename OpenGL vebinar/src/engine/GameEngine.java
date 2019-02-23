@@ -22,6 +22,8 @@ public class GameEngine implements Runnable{
 			gameLoop();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			cleanUp();
 		}
 		
 	}
@@ -31,6 +33,9 @@ public class GameEngine implements Runnable{
 		}else {
 			gameLoopThread.start();
 		}
+	}
+	public void cleanUp() {
+		gameLogic.cleanUp();
 	}
 	protected void gameLoop() {
 		float elapsedTime;
